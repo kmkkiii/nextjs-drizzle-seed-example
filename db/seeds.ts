@@ -8,10 +8,10 @@ async function main() {
       count: 5,
       columns: {
         id: f.int({
-          minValue: 10000,
-          maxValue: 20000,
+          minValue: 1,
           isUnique: true,
         }),
+        name: f.fullName(),
         age: f.int({
           minValue: 20,
           maxValue: 100,
@@ -21,25 +21,8 @@ async function main() {
     postsTable: {
       count: 5,
       columns: {
-        title: f.valuesFromArray({
-          values: [
-            'The sun set behind the mountains',
-            'Homemade pizza',
-            'A good book and a quiet corner',
-            'Rainy days',
-            'A new hiking trail',
-          ],
-          isUnique: true,
-        }),
-        description: f.valuesFromArray({
-          values: [
-            'The sun set behind the mountains, painting the sky in hues of orange and purple',
-            "I can't believe how good this homemade pizza turned out!",
-            'Sometimes, all you need is a good book and a quiet corner.',
-            'Who else thinks rainy days are perfect for binge-watching old movies?',
-            'Tried a new hiking trail today and found the most amazing waterfall!',
-          ],
-        }),
+        title: f.loremIpsum({ sentencesCount: 1 }),
+        description: f.loremIpsum({ sentencesCount: 2 }),
       },
     },
   }));
